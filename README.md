@@ -1,12 +1,14 @@
-# VideOCR Arch Linux Installer
+# VideOCR Linux Installer
 
-[![Arch Linux](https://img.shields.io/badge/Arch%20Linux-1793D1?logo=arch-linux&logoColor=white)](https://archlinux.org/)
+[![Linux](https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black)](https://www.linux.org/)
 [![Bash](https://img.shields.io/badge/Bash-4EAA25?logo=gnu-bash&logoColor=white)](https://www.gnu.org/software/bash/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-> 🚀 **One-command VideOCR installation!** Automated installer script for Arch Linux and derivatives.
+> 🚀 **One-command VideOCR installation!** Automated installer script for Linux distributions.
 
-This is an **unofficial** installer that automates the setup of [VideOCR](https://github.com/timminator/VideOCR) on Arch Linux systems. It downloads the pre-compiled binary, sets up Python environment, and creates desktop integration.
+This is an **unofficial** installer that automates the setup of [VideOCR](https://github.com/timminator/VideOCR) on Linux systems. It downloads the pre-compiled binary, sets up Python environment, and creates desktop integration.
+
+**Tested on:** Arch Linux, Manjaro, EndeavourOS (should work on most Linux distributions with `pacman` or `apt`)
 
 ## 📋 Features
 
@@ -22,8 +24,8 @@ This is an **unofficial** installer that automates the setup of [VideOCR](https:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/666subaru/videocr-arch-installer.git
-cd videocr-arch-installer
+git clone https://github.com/666subaru/videocr-linux-installer.git
+cd videocr-linux-installer
 ```
 
 ### 2. Run the Installer
@@ -47,7 +49,7 @@ videocr
 
 ### System Requirements
 
-- **OS**: Arch Linux or derivatives (Manjaro, EndeavourOS, etc.)
+- **OS**: Linux (Arch, Debian, Ubuntu, Fedora, etc.)
 - **Python**: 3.8+
 - **GPU**: NVIDIA GPU (CUDA support required)
 - **Disk Space**: ~5GB free space
@@ -56,8 +58,14 @@ videocr
 
 The script automatically installs these if missing:
 
+**For Arch-based distributions:**
 ```bash
 sudo pacman -S python python-pip p7zip curl git
+```
+
+**For Debian/Ubuntu:**
+```bash
+sudo apt install python3 python3-pip p7zip-full curl git
 ```
 
 ## 🔧 Manual Installation (Optional)
@@ -156,7 +164,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## 👨‍💻 Developer
 
-**666subaru** - *Arch Linux Installer*
+**666subaru** - *Linux Installer*
 
 - GitHub: [@666subaru](https://github.com/666subaru)
 
