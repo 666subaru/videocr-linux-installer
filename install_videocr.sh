@@ -18,7 +18,7 @@ INSTALL_DIR="$HOME/.local/share/videocr"
 DESKTOP_FILE="$HOME/.local/share/applications/videocr.desktop"
 ICON_DIR="$HOME/.local/share/icons/hicolor/256x256/apps"
 VENV_DIR="$INSTALL_DIR/.venv"
-VERSION="1.4.2"
+VERSION="1.5.0"
 
 echo -e "${GREEN}╔════════════════════════════════════════════════════════╗${NC}"
 echo -e "${GREEN}║     VideOCR Otomatik Kurulum Betiği (Arch Linux)       ║${NC}"
@@ -128,6 +128,7 @@ pip install --quiet PySimpleGUI wakepy av numpy rapidfuzz
 pip install --quiet opencc-python-reimplemented wordninja
 pip install --quiet Pillow tqdm scikit-image pyclipper shapely
 pip install --quiet opencv-python-headless langdetect pyyaml
+pip install --quiet plyer
 
 echo -e "${GREEN}✓${NC} Python bağımlılıkları kuruldu"
 echo ""
@@ -155,11 +156,20 @@ echo ""
 echo -e "${BLUE}[8/10]${NC} Masaüstü kısayolu oluşturuluyor..."
 mkdir -p "$HOME/.local/share/applications"
 
+# Wrapper script oluştur (KDE uyumluluğu için)
+cat > "$HOME/.local/bin/videocr-launcher" << EOF
+#!/bin/bash
+export TCL_LIBRARY="$INSTALL_DIR/tcl8.6"
+export TK_LIBRARY="$INSTALL_DIR/tk8.6"
+exec "$VENV_DIR/bin/python" "$INSTALL_DIR/VideOCR.py" "\$@"
+EOF
+chmod +x "$HOME/.local/bin/videocr-launcher"
+
 cat > "$DESKTOP_FILE" << EOF
 [Desktop Entry]
 Name=VideOCR
 Comment=Extract subtitles from video using PaddleOCR
-Exec=bash -c 'export TCL_LIBRARY="$INSTALL_DIR/tcl8.6" && export TK_LIBRARY="$INSTALL_DIR/tk8.6" && "$VENV_DIR/bin/python" "$INSTALL_DIR/VideOCR.py"'
+Exec=$HOME/.local/bin/videocr-launcher
 Icon=videocr
 Type=Application
 Terminal=false

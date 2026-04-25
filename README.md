@@ -78,13 +78,13 @@ git clone https://github.com/timminator/VideOCR.git ~/.local/share/videocr
 
 # 2. Download binary files
 cd ~/.local/share/videocr
-curl -L -o videocr-cli-GPU-v1.4.2-CUDA-12.9-Linux.7z.001 \
-    https://github.com/timminator/VideOCR/releases/download/v1.4.2/videocr-cli-GPU-v1.4.2-CUDA-12.9-Linux.7z.001
-curl -L -o videocr-cli-GPU-v1.4.2-CUDA-12.9-Linux.7z.002 \
-    https://github.com/timminator/VideOCR/releases/download/v1.4.2/videocr-cli-GPU-v1.4.2-CUDA-12.9-Linux.7z.002
+curl -L -o videocr-cli-GPU-v1.5.0-CUDA-12.9-Linux.7z.001 \
+    https://github.com/timminator/VideOCR/releases/download/v1.5.0/videocr-cli-GPU-v1.5.0-CUDA-12.9-Linux.7z.001
+curl -L -o videocr-cli-GPU-v1.5.0-CUDA-12.9-Linux.7z.002 \
+    https://github.com/timminator/VideOCR/releases/download/v1.5.0/videocr-cli-GPU-v1.5.0-CUDA-12.9-Linux.7z.002
 
 # 3. Extract archives
-7z x videocr-cli-GPU-v1.4.2-CUDA-12.9-Linux.7z.001
+7z x videocr-cli-GPU-v1.5.0-CUDA-12.9-Linux.7z.001
 
 # 4. Create Python virtual environment
 python -m venv .venv
@@ -93,7 +93,7 @@ source .venv/bin/activate
 # 5. Install dependencies
 pip install paddlepaddle-gpu==2.6.2 paddleocr==3.4.0 PySimpleGUI wakepy av numpy rapidfuzz
 pip install opencc-python-reimplemented wordninja Pillow tqdm scikit-image pyclipper shapely
-pip install opencv-python-headless langdetect pyyaml
+pip install opencv-python-headless langdetect pyyaml plyer
 
 # 6. Run
 python VideOCR.py
