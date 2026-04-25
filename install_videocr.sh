@@ -61,15 +61,22 @@ mkdir -p "$ICON_DIR"
 echo -e "${GREEN}✓${NC} Dizinler oluşturuldu"
 echo ""
 
-# 3. GitHub reposunu klonla
-echo -e "${BLUE}[3/10]${NC} VideOCR reposu indiriliyor..."
+# 3. GitHub reposunu klonla (temel dosyalar: diller, ikonlar)
+echo -e "${BLUE}[3/10]${NC} VideOCR temel dosyaları indiriliyor..."
 if [ -d "$INSTALL_DIR/.git" ]; then
     cd "$INSTALL_DIR"
     git pull --quiet
 else
-    git clone --quiet https://github.com/timminator/VideOCR.git "$INSTALL_DIR"
+    git clone --depth 1 --quiet https://github.com/timminator/VideOCR.git "$INSTALL_DIR"
 fi
-echo -e "${GREEN}✓${NC} Repo indirildi"
+echo -e "${GREEN}✓${NC} Temel repo indirildi"
+echo ""
+
+# 3.5. Düzeltilmiş VideOCR.py'yi çek
+echo -e "${BLUE}[3.5/10]${NC} Linux düzeltmeleri içeren VideOCR.py çekiliyor..."
+curl -L --fail --silent -o "$INSTALL_DIR/VideOCR.py" \
+    "https://raw.githubusercontent.com/666subaru/videocr-linux-installer/master/VideOCR.py"
+echo -e "${GREEN}✓${NC} Düzeltilmiş VideOCR.py hazır"
 echo ""
 
 # 4. videocr-cli.bin dosyalarını indir
