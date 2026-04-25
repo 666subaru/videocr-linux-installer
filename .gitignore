@@ -1,0 +1,34 @@
+# Python
+created by venv automatically
+.venv/
+__pycache__/
+*.egg-info/
+
+dist/
+build/
+
+# Compiled / shared objects
+*.so
+*.o
+*.a
+*.pyc
+
+# Archives
+*.7z
+*.7z.001
+*.7z.002
+*.zip
+*.tar.gz
+*.rar
+
+# Logs
+tmp/
+*.log
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
